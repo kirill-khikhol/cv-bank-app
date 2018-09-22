@@ -1,23 +1,34 @@
 package com.tel_ran.cvBank.controller;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tel_ran.cvBank.api.CompanyRequestType;
+import com.tel_ran.cvBank.dto.AddressDto;
+import com.tel_ran.cvBank.dto.ApplicantDto;
+import com.tel_ran.cvBank.dto.CompanyProfileDto;
+import com.tel_ran.cvBank.dto.CompanyProfileWrapperDto;
+import com.tel_ran.cvBank.dto.CompanyRegistrationDto;
+import com.tel_ran.cvBank.dto.SearchProfileDto;
+import com.tel_ran.cvBank.dto.SearchProfileWrapperDto;
 
 @RestController
 public class CompanyController implements CompanyRequestType {
 
 	@RequestMapping(value = REGISTRATION, method = RequestMethod.POST)
-	public String registration() {
-		return "registration ok";
+	public CompanyRegistrationDto registration(@RequestBody CompanyProfileDto company) {
+		String token = company.getApplicant().getEmail() + ":" + "password";
+		return new CompanyRegistrationDto(token, company);
 	}
 
 	@RequestMapping(value = LOGIN, method = RequestMethod.GET)
-	public String login() {
-		return "login ok";
+	public CompanyProfileWrapperDto login() {
+		return new CompanyProfileWrapperDto(new CompanyProfileDto("inetex", "inetex.co.il",
+				new AddressDto("israel", "rechovot", "some St", "777", "1234567", "0501234567"),
+				new ApplicantDto("Vasya", "Pupkin", "chief", "pv@mail.com", "0512345678")));
 	}
 
 	@RequestMapping(value = SEARCH_PROFILES, method = RequestMethod.GET)
@@ -26,8 +37,9 @@ public class CompanyController implements CompanyRequestType {
 	}
 
 	@RequestMapping(value = SEARCH_PROFILE, method = RequestMethod.PUT)
-	public String editSearchProfile(@RequestParam(value = "searchProfileName") String searchProfileName) {
-		return "editSearchProfile ok" + System.lineSeparator() + "searchProfileName = " + searchProfileName;
+	public SearchProfileWrapperDto editSearchProfile(@RequestParam(value = "searchProfileName") String searchProfileName,
+			@RequestBody SearchProfileDto searchProfile) {
+		return new SearchProfileWrapperDto(searchProfile);
 	}
 
 	@RequestMapping(value = SEARCH_PROFILE, method = RequestMethod.DELETE)
