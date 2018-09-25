@@ -9,7 +9,21 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class SearchProfilesDto implements Serializable{
+public class SearchProfilesDto implements Serializable {
 	@Getter
 	private List<SearchProfileWrapperDto> searchProfiles;
+
+	public SearchProfilesDto(List<SearchProfileWrapperDto> searchProfiles) {
+		super();
+		this.searchProfiles = searchProfiles;
+	}
+
+	public SearchProfilesDto() {
+		super();
+	}
+
+	public List<SearchProfileWrapperDto> getSearchProfiles() {
+		return searchProfiles;
+	}
+
 }

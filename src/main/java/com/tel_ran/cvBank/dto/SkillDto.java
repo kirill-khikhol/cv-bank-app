@@ -13,11 +13,12 @@ import lombok.RequiredArgsConstructor;
 public class SkillDto implements Serializable {
 	@Getter
 	private String skillName;
-	// private String isProved;
+	private Boolean isProved;
 
-	public SkillDto(String skillName) {
+	public SkillDto(String skillName, Boolean isProved) {
 		super();
 		this.skillName = skillName;
+		this.isProved = isProved;
 	}
 
 	public SkillDto() {
@@ -26,6 +27,10 @@ public class SkillDto implements Serializable {
 
 	public String getSkillName() {
 		return skillName;
+	}
+
+	public Boolean getIsProved() {
+		return isProved;
 	}
 
 }
