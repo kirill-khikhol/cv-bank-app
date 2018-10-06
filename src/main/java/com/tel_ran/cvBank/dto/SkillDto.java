@@ -15,22 +15,22 @@ public class SkillDto implements Serializable {
 	private String skillName;
 	private Boolean isProved;
 
-	public SkillDto(String skillName, Boolean isProved) {
-		super();
-		this.skillName = skillName;
-		this.isProved = isProved;
-	}
-
-	public SkillDto() {
-		super();
-	}
-
-	public String getSkillName() {
-		return skillName;
-	}
-
-	public Boolean getIsProved() {
-		return isProved;
-	}
+//	public SkillDto(String skillName, Boolean isProved) {
+//		super();
+//		this.skillName = skillName;
+//		this.isProved = isProved;
+//	}
+//
+//	public SkillDto() {
+//		super();
+//	}
+//
+//	public String getSkillName() {
+//		return skillName;
+//	}
+//
+//	public Boolean getIsProved() {
+//		return isProved;
+//	}
 
 }

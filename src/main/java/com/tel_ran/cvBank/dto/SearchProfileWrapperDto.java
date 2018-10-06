@@ -12,17 +12,17 @@ public class SearchProfileWrapperDto implements Serializable {
 	@Getter
 	private SearchProfileDto searchProfile;
 
-	public SearchProfileWrapperDto(SearchProfileDto searchProfile) {
-		super();
-		this.searchProfile = searchProfile;
-	}
-
-	public SearchProfileWrapperDto() {
-		super();
-	}
-
-	public SearchProfileDto getSearchProfile() {
-		return searchProfile;
-	}
+//	public SearchProfileWrapperDto(SearchProfileDto searchProfile) {
+//		super();
+//		this.searchProfile = searchProfile;
+//	}
+//
+//	public SearchProfileWrapperDto() {
+//		super();
+//	}
+//
+//	public SearchProfileDto getSearchProfile() {
+//		return searchProfile;
+//	}
 
 }
